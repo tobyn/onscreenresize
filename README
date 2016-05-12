@@ -1,0 +1,16 @@
+onscreenresize is a tiny C program that listens for xrandr events and
+executes a command of your choice when they occur. I use it to redraw my
+desktop wallpaper whenever I resize a VirtualBox window.
+
+To install, run make, then copy the onscreenresize executable somewhere
+on your PATH. If make complains about missing headers, make sure you
+have libx11-dev and libxrandr-dev installed (on Debian/Ubuntu).
+
+EXAMPLES
+
+  # Run ~/.fehbg every time the screen resizes, but not more than once
+  # every 500ms
+  onscreenresize 500 ~/.fehbg
+
+  # Echo 'resized' every time the screen resizes
+  onscreenresize 0 'echo resized'
