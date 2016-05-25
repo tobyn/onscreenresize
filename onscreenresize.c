@@ -57,11 +57,10 @@ int main(int argc, char *argv[]) {
 
   while (1) {
     XNextEvent(display,&event);
+    XRRUpdateConfiguration(&event);
 
     if (event.type - randr_event_base != RRScreenChangeNotify)
       continue;
-
-    XRRUpdateConfiguration(&event);
 
     if (debounce_interval > 0) {
       usleep(debounce_interval);
